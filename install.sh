@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# get unzip
+apt update -y
+apt get unzip -y
+
 # Setup script environment
 set -o errexit  #Exit immediately if a pipeline returns a non-zero status
 set -o errtrace #Trap ERR from shell functions, command substitutions, and commands from subshell
@@ -113,6 +117,7 @@ msg "Extracting disk image..."
 case $FILE in
   *"gz") gunzip -f $FILE;;
   *"xz") xz -d $FILE;;
+  *"zip") unzip $FILE;;
   *) die "Unable to handle file extension '${FILE##*.}'.";;
 esac
 
