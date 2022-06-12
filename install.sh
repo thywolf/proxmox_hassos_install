@@ -2,7 +2,7 @@
 
 # get unzip
 apt update -y
-apt get unzip -y
+apt install unzip -y
 
 # Setup script environment
 set -o errexit  #Exit immediately if a pipeline returns a non-zero status
